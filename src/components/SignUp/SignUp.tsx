@@ -1,17 +1,17 @@
 import React from "react";
-import css from "./SignIn.module.scss";
+import css from "./SignUp.module.scss";
 
-type SignInProps = {
+type SignUpProps = {
   open: boolean;
   onClose: () => void;
 };
-export const SignIn = (props: SignInProps) => {
+export const SignUp = (props: SignUpProps) => {
   if (props.open) {
     return (
-      <div className={css.signin}>
-        <div className={css.signin__formWrapper}>
+      <div className={css.signup}>
+        <div className={css.signup__formWrapper}>
           <p>
-            <b>Sign in:</b>
+            <b>Registration:</b>
           </p>
           <form
             onSubmit={(e) => {
@@ -29,7 +29,12 @@ export const SignIn = (props: SignInProps) => {
               <br />
               <input type="password" name="userpassword" />
             </div>
-            <button type="submit">Login</button>
+            <div>
+              Repeat password:
+              <br />
+              <input type="password" name="userpassword" />
+            </div>
+            <button type="submit">Register</button>
             <button onClick={() => props.onClose()}>Cancel</button>
           </form>
         </div>
