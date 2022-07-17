@@ -1,4 +1,5 @@
 import React from "react";
+import { Auth } from "../Auth/Auth";
 
 export const Header = () => (
   <div className="container">
@@ -36,7 +37,7 @@ export const Header = () => (
           </a>
 
           <div className="p-3 bg-warning rounded">
-            <p className="mb-0">Sign up Widget.</p>
+            <Auth />
           </div>
         </div>
       </div>
