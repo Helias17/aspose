@@ -1,4 +1,5 @@
 import React from "react";
+import { userApi } from "../../api/api";
 import css from "./SignUp.module.scss";
 
 type SignUpProps = {
@@ -14,9 +15,13 @@ export const SignUp = (props: SignUpProps) => {
             <b>Registration:</b>
           </p>
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              console.log(e);
+              const response = await userApi.signUp({
+                username: "Irishka",
+                password: "123456",
+              });
+              console.log(response);
             }}
           >
             <div>

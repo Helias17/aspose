@@ -8,7 +8,7 @@
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack --env production",
-    "json-server": "json-server --watch db.json --routes routes.json"
+    "json-server": "json-server --watch --no-cors db.json --routes routes.json --delay 1000"
   },
   "repository": {
     "type": "git",
