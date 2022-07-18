@@ -15,3 +15,12 @@ export const userApi = {
     });
   },
 };
+
+export const weatherApi = {
+  async getCityWeather(location: string) {
+    return axiosInstance.get(`weather/${location}`);
+  },
+  async getCitiesList() {
+    return axiosInstance.get(`weather`);
+  },
+};

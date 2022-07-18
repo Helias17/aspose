@@ -1,0 +1,31 @@
+.weather {
+  display: block;
+
+  &__loader {
+    position: absolute;
+    z-index: 999;
+    left: calc(50% - 15px);
+    top: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+  }
+
+  &__options {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 10px;
+    right: 10px;
+    opacity: 0.5;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__selectWrap {
+    margin-top: 15px;
+  }
+}

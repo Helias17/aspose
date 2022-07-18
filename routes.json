@@ -1,4 +1,5 @@
 {
   "/api/*": "/$1",
-  "/users/:email/:password": "/users?email=:email&password=:password"
+  "/users/:email/:password": "/users?email=:email&password=:password",
+  "/weather/:location": "/weather?location=:location"
 }

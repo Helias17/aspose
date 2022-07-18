@@ -1,4 +1,6 @@
 import React from "react";
+import { Weather } from "../Weather/Weather";
+import { WEATHER_LOCATION } from "../../constants";
 
 export const Main = () => (
   <main className="container">
@@ -233,11 +235,11 @@ export const Main = () => (
 
       <div className="col-md-4">
         <div className="position-sticky" style={{ top: "2rem" }}>
-          <div className="p-4 mb-3 bg-warning rounded">
+          <div className="p-4 mb-3 bg-warning rounded position-relative">
             <h4 className="fst-italic">Weather</h4>
-            <p className="mb-0">
-              Customize this section to show temporature and location.
-            </p>
+            <div className="mb-0">
+              <Weather />
+            </div>
           </div>
 
           <div className="p-4">
