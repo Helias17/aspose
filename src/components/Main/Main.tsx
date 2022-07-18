@@ -1,6 +1,15 @@
 import React from "react";
 import { Weather } from "../Weather/Weather";
-import { WEATHER_LOCATION } from "../../constants";
+import { Feedback } from "../Feedback/Feedback";
+import { FormDataType } from "../../types/type";
+import { feedbackApi } from "../../api/api";
+
+const authorisedUserStorage = localStorage.getItem("xsdrz-user");
+const authorisedUser = authorisedUserStorage || "";
+
+const handleFeedbackSubmit = async (data: FormDataType) => {
+  await feedbackApi.submitFeedback(data);
+};
 
 export const Main = () => (
   <main className="container">
@@ -228,8 +237,10 @@ export const Main = () => (
         </article>
 
         <div className="p-4 mb-3 bg-warning rounded">
-          <h4 className="fst-italic">Feedback Widget</h4>
-          <p className="mb-0">Customize this section to submit feedback.</p>
+          <h4 className="fst-italic">Feedback</h4>
+          <div className="mb-0">
+            <Feedback user={authorisedUser} submit={handleFeedbackSubmit} />
+          </div>
         </div>
       </div>
 

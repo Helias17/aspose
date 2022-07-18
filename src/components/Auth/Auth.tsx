@@ -26,28 +26,23 @@ export const Auth = () => {
   };
 
   const handleSignInSubmit = async (data: AuthData) => {
-    console.log(data);
     try {
       const response = await userApi.signIn(data);
       if (!response.data.length) {
         throw new Error("User not found...");
       }
-      console.log(response.data[0].email);
       setUsername(response.data[0].email);
       localStorage.setItem("xsdrz-user", response.data[0].email);
       handleSignInClose();
     } catch (err) {
-      console.log(err);
       setErrorSignIn(err.message);
       setTimeout(() => setErrorSignIn(""), 3000);
     }
   };
 
   const handleSignUpSubmit = async (data: AuthData) => {
-    console.log(data);
     try {
       const response = await userApi.signUp(data);
-      console.log(response);
       setSuccessSignUp(true);
     } catch (err) {
       console.log(err);

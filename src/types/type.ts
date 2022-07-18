@@ -8,3 +8,10 @@ export type CityWeather = {
   temp: number;
   id: number;
 };
+
+export type FormDataType = {
+  grade: string;
+  text: string;
+  email: string;
+  page?: string;
+};

@@ -34,7 +34,6 @@ export const Weather = () => {
     data: dataCities,
     error: errorCities,
   } = useAsync(getWeatherCities);
-  console.log(dataCities);
 
   useEffect(() => {
     const fetchCityWeather = async (city: string) => {
@@ -44,7 +43,6 @@ export const Weather = () => {
     fetchCityWeather(currentCity).then((cityData) => {
       setLoading(false);
       setTemperature(cityData.temp);
-      console.log(cityData);
     });
   }, [currentCity]);
 

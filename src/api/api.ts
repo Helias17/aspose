@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AuthData } from "../types/type";
+import { AuthData, FormDataType } from "../types/type";
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3000/api/",
@@ -22,5 +22,13 @@ export const weatherApi = {
   },
   async getCitiesList() {
     return axiosInstance.get(`weather`);
+  },
+};
+
+export const feedbackApi = {
+  async submitFeedback(data: FormDataType) {
+    return axiosInstance.post("feedback/", data, {
+      headers: { "Content-Type": "application/json" },
+    });
   },
 };
