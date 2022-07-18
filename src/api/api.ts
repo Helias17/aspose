@@ -6,8 +6,8 @@ const axiosInstance = axios.create({
 });
 
 export const userApi = {
-  async signIn() {
-    return axiosInstance.get("users/1");
+  async signIn(data: number) {
+    return axiosInstance.get(`users/${data}`);
   },
   async signUp(data: AuthData) {
     return axiosInstance.post("users/", data, {

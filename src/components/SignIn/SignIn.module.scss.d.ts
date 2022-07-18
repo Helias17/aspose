@@ -3,6 +3,7 @@
 interface CssExports {
   'signin': string;
   'signin__closeBtn': string;
+  'signin__err': string;
   'signin__formWrapper': string;
 }
 export const cssExports: CssExports;

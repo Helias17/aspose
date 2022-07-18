@@ -4,6 +4,7 @@ interface CssExports {
   'signup': string;
   'signup__closeBtn': string;
   'signup__formWrapper': string;
+  'signup__success': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

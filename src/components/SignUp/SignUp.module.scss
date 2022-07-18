@@ -22,4 +22,12 @@
     right: 5px;
     top: 5px;
   }
+
+  &__success {
+    margin: 15px 0;
+    padding: 5px;
+    background: rgba(green, 0.3);
+    color: darkgreen;
+    font-size: 14px;
+  }
 }

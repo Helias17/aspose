@@ -18,9 +18,29 @@
   },
   "users": [
     {
-      "username": "Irishka",
+      "email": "john@mail.ru",
+      "password": "john@mail.ru",
+      "id": 2
+    },
+    {
+      "email": "mike@mail.ru",
+      "password": "mike@mail.ru",
+      "id": 3
+    },
+    {
+      "email": "julia@google.com",
+      "password": "77799900",
+      "id": 4
+    },
+    {
+      "email": "darel@google.com",
       "password": "123456",
-      "id": 1
+      "id": 5
+    },
+    {
+      "email": "bill@yahoo.com",
+      "password": "345345345",
+      "id": 6
     }
   ]
 }

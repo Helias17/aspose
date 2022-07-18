@@ -10,25 +10,42 @@ const authorisedUser = authorisedUserStorage || "";
 
 export const Auth = () => {
   const [signInVisible, setSignInVisible] = useState(false);
+  const [errorSignIn, setErrorSignIn] = useState("");
   const [signUpVisible, setSignUpVisible] = useState(false);
+  const [successSignUp, setSuccessSignUp] = useState(false);
   const [hintVisible, setHintVisible] = useState(false);
   const [username, setUsername] = useState(authorisedUser);
 
   const handleSignInClose = () => {
     setSignInVisible(false);
+    setErrorSignIn("");
   };
   const handleSignUpClose = () => {
     setSignUpVisible(false);
+    setSuccessSignUp(false);
   };
 
-  const handleSignInSubmit = async (data: AuthData) => {
+  const handleSignInSubmit = async (userId: number) => {
+    console.log(userId);
+    try {
+      const response = await userApi.signIn(userId);
+      console.log(response);
+      setUsername(response.data.email);
+      localStorage.setItem("xsdrz-user", response.data.email);
+      handleSignInClose();
+    } catch (err) {
+      console.log(err);
+      setErrorSignIn(err.message);
+      setTimeout(() => setErrorSignIn(""), 3000);
+    }
+  };
+
+  const handleSignUpSubmit = async (data: AuthData) => {
     console.log(data);
     try {
-      const response = await userApi.signIn();
+      const response = await userApi.signUp(data);
       console.log(response);
-      setUsername(response.data.username);
-      localStorage.setItem("xsdrz-user", response.data.username);
-      handleSignInClose();
+      setSuccessSignUp(true);
     } catch (err) {
       console.log(err);
     }
@@ -70,8 +87,15 @@ export const Auth = () => {
         open={signInVisible}
         onClose={handleSignInClose}
         submit={handleSignInSubmit}
+        error={errorSignIn}
       />
-      <SignUp open={signUpVisible} onClose={handleSignUpClose} />
+      <SignUp
+        open={signUpVisible}
+        onClose={handleSignUpClose}
+        submit={handleSignUpSubmit}
+        //error={errorSignIn}
+        success={successSignUp}
+      />
     </div>
   );
 };

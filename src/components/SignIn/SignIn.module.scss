@@ -22,4 +22,12 @@
     right: 5px;
     top: 5px;
   }
+
+  &__err {
+    margin: 15px 0;
+    padding: 5px;
+    background: rgba(red, 0.3);
+    color: darkred;
+    font-size: 14px;
+  }
 }
