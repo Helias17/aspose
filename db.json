@@ -41,6 +41,38 @@
       "email": "bill@yahoo.com",
       "password": "345345345",
       "id": 6
+    },
+    {
+      "email": "helias@yandex.ru",
+      "password": "1111",
+      "id": 7
+    }
+  ],
+  " weather": [
+    {
+      "location": "Moscow",
+      "temp": 25,
+      "id": 1
+    },
+    {
+      "location": "Simferopol",
+      "temp": 35,
+      "id": 2
+    },
+    {
+      "location": "Saint-Petersburg",
+      "temp": 27,
+      "id": 3
+    },
+    {
+      "location": "Krasnodar",
+      "temp": 30,
+      "id": 4
+    },
+    {
+      "location": "Sochi",
+      "temp": 37,
+      "id": 5
     }
   ]
 }

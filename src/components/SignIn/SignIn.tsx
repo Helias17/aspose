@@ -1,17 +1,17 @@
 import React, { useState } from "react";
+import { AuthData } from "../../types/type";
 import css from "./SignIn.module.scss";
 
 type SignInProps = {
   open: boolean;
   onClose: () => void;
   error: string;
-  submit: (userId: number) => Promise<void>;
+  submit: (data: AuthData) => Promise<void>;
 };
 
 export const SignIn = (props: SignInProps) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const [userId, setUserId] = useState(0);
 
   if (props.open) {
     return (
@@ -23,7 +23,7 @@ export const SignIn = (props: SignInProps) => {
           <form
             onSubmit={async (e) => {
               e.preventDefault();
-              props.submit(userId);
+              props.submit({ email: login, password });
             }}
           >
             <div>
@@ -44,16 +44,6 @@ export const SignIn = (props: SignInProps) => {
                 name="userpassword"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div>
-              User Id:
-              <br />
-              <input
-                type="number"
-                name="userid"
-                value={userId}
-                onChange={(e) => setUserId(parseInt(e.target.value))}
               />
             </div>
             <button type="submit">Login</button>

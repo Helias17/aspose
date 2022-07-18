@@ -234,7 +234,7 @@ export const Main = () => (
       <div className="col-md-4">
         <div className="position-sticky" style={{ top: "2rem" }}>
           <div className="p-4 mb-3 bg-warning rounded">
-            <h4 className="fst-italic">Weather Widget</h4>
+            <h4 className="fst-italic">Weather</h4>
             <p className="mb-0">
               Customize this section to show temporature and location.
             </p>

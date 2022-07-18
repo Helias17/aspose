@@ -25,13 +25,16 @@ export const Auth = () => {
     setSuccessSignUp(false);
   };
 
-  const handleSignInSubmit = async (userId: number) => {
-    console.log(userId);
+  const handleSignInSubmit = async (data: AuthData) => {
+    console.log(data);
     try {
-      const response = await userApi.signIn(userId);
-      console.log(response);
-      setUsername(response.data.email);
-      localStorage.setItem("xsdrz-user", response.data.email);
+      const response = await userApi.signIn(data);
+      if (!response.data.length) {
+        throw new Error("User not found...");
+      }
+      console.log(response.data[0].email);
+      setUsername(response.data[0].email);
+      localStorage.setItem("xsdrz-user", response.data[0].email);
       handleSignInClose();
     } catch (err) {
       console.log(err);
